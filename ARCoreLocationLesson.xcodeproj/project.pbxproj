@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134E07C665CD234D0B1817FF /* Pods_ARCoreLocationLesson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CD5C95708153CED2EC933B /* Pods_ARCoreLocationLesson.framework */; };
 		18D262F324ED6C38003972F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F224ED6C38003972F0 /* AppDelegate.swift */; };
 		18D262F524ED6C38003972F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F424ED6C38003972F0 /* SceneDelegate.swift */; };
-		18D262F724ED6C38003972F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F624ED6C38003972F0 /* ViewController.swift */; };
+		18D262F724ED6C38003972F0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F624ED6C38003972F0 /* ARViewController.swift */; };
 		18D262FA24ED6C38003972F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D262F824ED6C38003972F0 /* Main.storyboard */; };
 		18D262FC24ED6C3B003972F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D262FB24ED6C3B003972F0 /* Assets.xcassets */; };
 		18D262FF24ED6C3B003972F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D262FD24ED6C3B003972F0 /* LaunchScreen.storyboard */; };
+		18D28EC624EE968800BDEF49 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EC524EE968800BDEF49 /* Utility.swift */; };
+		18D28EC824EEA78F00BDEF49 /* LocomiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00CD5C95708153CED2EC933B /* Pods_ARCoreLocationLesson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARCoreLocationLesson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D262EF24ED6C38003972F0 /* ARCoreLocationLesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCoreLocationLesson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D262F224ED6C38003972F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D262F424ED6C38003972F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18D262F624ED6C38003972F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18D262F624ED6C38003972F0 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		18D262F924ED6C38003972F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18D262FB24ED6C3B003972F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D262FE24ED6C3B003972F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18D2630024ED6C3B003972F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D28EC524EE968800BDEF49 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocomiViewController.swift; sourceTree = "<group>"; };
+		46D8AF09C5487EA724044E22 /* Pods-ARCoreLocationLesson.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCoreLocationLesson.release.xcconfig"; path = "Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson.release.xcconfig"; sourceTree = "<group>"; };
+		47CCB22862FEFD2901297F09 /* Pods-ARCoreLocationLesson.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCoreLocationLesson.debug.xcconfig"; path = "Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134E07C665CD234D0B1817FF /* Pods_ARCoreLocationLesson.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +50,10 @@
 			isa = PBXGroup;
 			children = (
 				18D262F124ED6C38003972F0 /* ARCoreLocationLesson */,
+				18D28EC424EE966A00BDEF49 /* Utilities */,
 				18D262F024ED6C38003972F0 /* Products */,
+				D76BEC47F8DB4272544A3B36 /* Pods */,
+				EF525CD27545CA212AC48069 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +70,39 @@
 			children = (
 				18D262F224ED6C38003972F0 /* AppDelegate.swift */,
 				18D262F424ED6C38003972F0 /* SceneDelegate.swift */,
-				18D262F624ED6C38003972F0 /* ViewController.swift */,
+				18D262F624ED6C38003972F0 /* ARViewController.swift */,
+				18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */,
 				18D262F824ED6C38003972F0 /* Main.storyboard */,
 				18D262FB24ED6C3B003972F0 /* Assets.xcassets */,
 				18D262FD24ED6C3B003972F0 /* LaunchScreen.storyboard */,
 				18D2630024ED6C3B003972F0 /* Info.plist */,
 			);
 			path = ARCoreLocationLesson;
+			sourceTree = "<group>";
+		};
+		18D28EC424EE966A00BDEF49 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				18D28EC524EE968800BDEF49 /* Utility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D76BEC47F8DB4272544A3B36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47CCB22862FEFD2901297F09 /* Pods-ARCoreLocationLesson.debug.xcconfig */,
+				46D8AF09C5487EA724044E22 /* Pods-ARCoreLocationLesson.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF525CD27545CA212AC48069 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00CD5C95708153CED2EC933B /* Pods_ARCoreLocationLesson.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D2630324ED6C3B003972F0 /* Build configuration list for PBXNativeTarget "ARCoreLocationLesson" */;
 			buildPhases = (
+				7AD07C11A99FD956866473B6 /* [CP] Check Pods Manifest.lock */,
 				18D262EB24ED6C38003972F0 /* Sources */,
 				18D262EC24ED6C38003972F0 /* Frameworks */,
 				18D262ED24ED6C38003972F0 /* Resources */,
+				C9EE413040509BEF94BA51B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +173,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7AD07C11A99FD956866473B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARCoreLocationLesson-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9EE413040509BEF94BA51B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18D262EB24ED6C38003972F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D262F724ED6C38003972F0 /* ViewController.swift in Sources */,
+				18D28EC624EE968800BDEF49 /* Utility.swift in Sources */,
+				18D262F724ED6C38003972F0 /* ARViewController.swift in Sources */,
+				18D28EC824EEA78F00BDEF49 /* LocomiViewController.swift in Sources */,
 				18D262F324ED6C38003972F0 /* AppDelegate.swift in Sources */,
 				18D262F524ED6C38003972F0 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +366,7 @@
 		};
 		18D2630424ED6C3B003972F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47CCB22862FEFD2901297F09 /* Pods-ARCoreLocationLesson.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,7 +376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sogo.ARCoreLocationLesson;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sogo.locomiLens;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,6 +385,7 @@
 		};
 		18D2630524ED6C3B003972F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D8AF09C5487EA724044E22 /* Pods-ARCoreLocationLesson.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,7 +395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sogo.ARCoreLocationLesson;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sogo.locomiLens;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
