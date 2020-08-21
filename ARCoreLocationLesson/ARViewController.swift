@@ -29,7 +29,11 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         comics = APIRequest().getNearComics(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude))
         for comic in comics! {
             let coordinate = CLLocationCoordinate2D(latitude: comic.lat, longitude: comic.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: 45)
+            var altitude: Double = 45
+            if comic.altitude != nil {
+                altitude = comic.altitude!
+            }
+            let location = CLLocation(coordinate: coordinate, altitude: altitude)
             let image = Utility().drawText(text: comic.text)
             spotsData.append((location, image!))
         }
@@ -82,8 +86,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         
         for comic in comics! {
             let coordinate = CLLocationCoordinate2D(latitude: comic.lat, longitude: comic.lng)
-            print(self.location?.altitude)
-            let location = CLLocation(coordinate: coordinate, altitude: self.location?.altitude ?? 10)
+            let location = CLLocation(coordinate: coordinate, altitude: self.location?.altitude ?? 45)
             let image = Utility().drawText(text: comic.text)
             spotsData.append((location, image!))
         }
