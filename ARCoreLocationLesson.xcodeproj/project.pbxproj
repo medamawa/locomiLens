@@ -18,6 +18,11 @@
 		18D28EC824EEA78F00BDEF49 /* LocomiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */; };
 		18D28ECF24EF95A800BDEF49 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28ECE24EF95A800BDEF49 /* APIRequest.swift */; };
 		18D28ED124EF960800BDEF49 /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28ED024EF960800BDEF49 /* Struct.swift */; };
+		18D28ED924EFFF6300BDEF49 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28ED824EFFF6300BDEF49 /* PostView.swift */; };
+		18D28EDB24F0001600BDEF49 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EDA24F0001600BDEF49 /* AccountViewController.swift */; };
+		18D28EDD24F000E900BDEF49 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EDC24F000E900BDEF49 /* LoginView.swift */; };
+		18D28EDF24F001A800BDEF49 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EDE24F001A800BDEF49 /* KeyChain.swift */; };
+		18D28EE224F0094500BDEF49 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D28EE124F0094500BDEF49 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocomiViewController.swift; sourceTree = "<group>"; };
 		18D28ECE24EF95A800BDEF49 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		18D28ED024EF960800BDEF49 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
+		18D28ED824EFFF6300BDEF49 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		18D28EDA24F0001600BDEF49 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		18D28EDC24F000E900BDEF49 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		18D28EDE24F001A800BDEF49 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		18D28EE124F0094500BDEF49 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		46D8AF09C5487EA724044E22 /* Pods-ARCoreLocationLesson.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCoreLocationLesson.release.xcconfig"; path = "Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson.release.xcconfig"; sourceTree = "<group>"; };
 		47CCB22862FEFD2901297F09 /* Pods-ARCoreLocationLesson.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCoreLocationLesson.debug.xcconfig"; path = "Target Support Files/Pods-ARCoreLocationLesson/Pods-ARCoreLocationLesson.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				18D28EC424EE966A00BDEF49 /* Utilities */,
+				18D28EE024F0092400BDEF49 /* Managers */,
 				18D262F124ED6C38003972F0 /* ARCoreLocationLesson */,
 				18D28ECD24EF958900BDEF49 /* Models */,
 				18D262F024ED6C38003972F0 /* Products */,
@@ -76,7 +87,10 @@
 				18D262F224ED6C38003972F0 /* AppDelegate.swift */,
 				18D262F424ED6C38003972F0 /* SceneDelegate.swift */,
 				18D262F624ED6C38003972F0 /* ARViewController.swift */,
+				18D28ED824EFFF6300BDEF49 /* PostView.swift */,
 				18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */,
+				18D28EDA24F0001600BDEF49 /* AccountViewController.swift */,
+				18D28EDC24F000E900BDEF49 /* LoginView.swift */,
 				18D262F824ED6C38003972F0 /* Main.storyboard */,
 				18D262FB24ED6C3B003972F0 /* Assets.xcassets */,
 				18D262FD24ED6C3B003972F0 /* LaunchScreen.storyboard */,
@@ -98,8 +112,17 @@
 			children = (
 				18D28ECE24EF95A800BDEF49 /* APIRequest.swift */,
 				18D28ED024EF960800BDEF49 /* Struct.swift */,
+				18D28EDE24F001A800BDEF49 /* KeyChain.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		18D28EE024F0092400BDEF49 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				18D28EE124F0094500BDEF49 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		D76BEC47F8DB4272544A3B36 /* Pods */ = {
@@ -234,13 +257,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D28EDF24F001A800BDEF49 /* KeyChain.swift in Sources */,
 				18D28EC624EE968800BDEF49 /* Utility.swift in Sources */,
 				18D262F724ED6C38003972F0 /* ARViewController.swift in Sources */,
+				18D28ED924EFFF6300BDEF49 /* PostView.swift in Sources */,
 				18D28EC824EEA78F00BDEF49 /* LocomiViewController.swift in Sources */,
 				18D262F324ED6C38003972F0 /* AppDelegate.swift in Sources */,
 				18D28ED124EF960800BDEF49 /* Struct.swift in Sources */,
 				18D28ECF24EF95A800BDEF49 /* APIRequest.swift in Sources */,
+				18D28EE224F0094500BDEF49 /* LocationManager.swift in Sources */,
 				18D262F524ED6C38003972F0 /* SceneDelegate.swift in Sources */,
+				18D28EDD24F000E900BDEF49 /* LoginView.swift in Sources */,
+				18D28EDB24F0001600BDEF49 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

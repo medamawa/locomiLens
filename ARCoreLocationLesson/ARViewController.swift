@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import ARCL
 import CoreLocation
 
@@ -45,7 +46,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         view.addSubview(sceneLocationView)
         
         let button = UIButton(type: .system)
-        button.setTitle("更新する", for: .normal)
+        button.setTitle("投稿する", for: .normal)
         button.sizeToFit()
         button.center = view.center
         button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
@@ -79,19 +80,8 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     // 位置情報取得 end
     
     @objc func onTap(sender: UIButton) {
-        // データ初期化
-        spotsData = []
-        
-        comics = APIRequest().getNearComics(latitude: "34.821413", longitude: "135.538147")
-        
-        for comic in comics! {
-            let coordinate = CLLocationCoordinate2D(latitude: comic.lat, longitude: comic.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: self.location?.altitude ?? 45)
-            let image = Utility().drawText(text: comic.text)
-            spotsData.append((location, image!))
-        }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dataLoad"), object: nil)
-        print(spotsData)
+        let postView = UIHostingController(rootView: PostView())
+        self.present(postView, animated: true, completion: nil)
     }
 
 }
