@@ -45,10 +45,26 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         sceneLocationView.run()
         view.addSubview(sceneLocationView)
         
-        let button = UIButton(type: .system)
-        button.setTitle("投稿する", for: .normal)
-        button.sizeToFit()
-        button.center = view.center
+        let button = UIButton(type: .custom)
+        let weightConfig = UIImage.SymbolConfiguration(weight: .heavy)
+        let scaleConfig = UIImage.SymbolConfiguration(scale: .large)
+        let imageConfig = scaleConfig.applying(weightConfig)
+        let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
+        let blue = UIColor(red: 0, green: 122 / 255, blue: 1, alpha: 1)
+        
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = blue
+        button.layer.borderWidth = 4
+        button.layer.borderColor = blue.cgColor
+        button.layer.cornerRadius = 30
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
+        
+        let x = self.view.frame.maxX - 80
+        let y = self.tabBarController!.tabBar.frame.origin.y - 110
+        button.frame = CGRect(x: x, y: y, width: 60, height: 60)
         button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
         view.addSubview(button)
     }
