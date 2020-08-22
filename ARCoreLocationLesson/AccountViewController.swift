@@ -32,11 +32,11 @@ class AccountViewController: UIViewController {
 
 struct AccountView: View {
     
-    @State private var showingLogin = false
+    @State var isShowing = false
     
     var body: some View {
         
-        Button(action: { self.showingLogin.toggle() }) {
+        Button(action: { self.isShowing.toggle() }) {
             HStack {
                 Image(systemName: "person")
                     .font(.largeTitle)
@@ -51,8 +51,8 @@ struct AccountView: View {
             .padding(.all)
             .background(Color.blue)
             .cornerRadius(10)
-            .sheet(isPresented: $showingLogin) {
-                LoginView()
+            .sheet(isPresented: $isShowing) {
+                LoginView(isShowing: $isShowing)
             }
         }
         
