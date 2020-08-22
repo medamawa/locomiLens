@@ -30,7 +30,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         comics = APIRequest().getNearComics(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude))
         for comic in comics! {
             let coordinate = CLLocationCoordinate2D(latitude: comic.lat, longitude: comic.lng)
-            var altitude: Double = 45
+            var altitude: Double = 45           // 標高の情報が含まれていればそちらを使う、なければデフォルト値（45）を使う
             if comic.altitude != nil {
                 altitude = comic.altitude!
             }
@@ -95,6 +95,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     }
     // 位置情報取得 end
     
+    
     @objc func onTap(sender: UIButton) {
         let postView = UIHostingController(rootView: PostView(postCallBack: { (postData) in self.callBack(data: postData) }))
         // postViewにあるプロパティにクロージャを渡す
@@ -102,9 +103,18 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         self.present(postView, animated: true, completion: nil)
     }
     
-    //画面遷移から戻ってきたときに実行する関数
+    //画面遷移から戻ってきたときに実行する関数(投稿した内容をARViewControllerに反映)
     func callBack(data: PostData) {
-        print(data)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+        let coordinate = CLLocationCoordinate2D(latitude: Double(data.lat)!, longitude: Double(data.lng)!)
+        let altitude: Double = data.altitude ?? 45
+        let location = CLLocation(coordinate: coordinate, altitude: altitude)
+        let image = Utility().drawText(text: data.text)
+        let spotData: [(CLLocation, UIImage)] = [(location, image!)]
+        
+        Utility().addLocations(sceneLocationView: sceneLocationView, spotsData: spotData)
+
     }
 
 }

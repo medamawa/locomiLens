@@ -46,13 +46,6 @@ struct PostView: View {
                     
                 }
                 
-//                サーバー側で公開範囲が未実装なので、0で固定しておく
-//                Section(header: Text("公開範囲を入力")) {
-//
-//                    TextField("公開範囲を入力して下さい（０を入力してください）", text: $release)
-//
-//                }
-                
                 Section {
                     
                     Button(action: {
