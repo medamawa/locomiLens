@@ -20,6 +20,9 @@ struct PostView: View {
     @State var selected = 0
     @State var birthDate = Date()
     
+    // クロージャーを保持するためのプロパティ
+    var postCallBack: ((PostData) -> Void)?
+    
     var body: some View {
         
         let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate: CLLocationCoordinate2D()
@@ -55,6 +58,10 @@ struct PostView: View {
                     Button(action: {
                         let postData = PostData(lat: String(coordinate.latitude), lng: String(coordinate.longitude), altitude: self.locationManager.location?.altitude, text: self.text, release: self.release)
                         APIRequest().post(postData)
+                        
+                        //completionのタイミングでプロパティのクロージャを実行
+                        //親ビュー(ARViewController)に投稿した内容を反映させる
+                        self.postCallBack?(postData)
                     }) {
                         
                         Text("投稿する")

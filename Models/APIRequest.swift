@@ -57,6 +57,8 @@ struct APIRequest {
             
             URLSession.shared.dataTask(with: urlRequest) { (jsonData, _, error) in
                 
+                print(jsonData)
+                
                 let data = try! JSONDecoder().decode(PostResponse.self, from: jsonData!)
 
                 print(data)

@@ -96,8 +96,15 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     // 位置情報取得 end
     
     @objc func onTap(sender: UIButton) {
-        let postView = UIHostingController(rootView: PostView())
+        let postView = UIHostingController(rootView: PostView(postCallBack: { (postData) in self.callBack(data: postData) }))
+        // postViewにあるプロパティにクロージャを渡す
+        // postDataがpostViewから戻る時に渡される引数です
         self.present(postView, animated: true, completion: nil)
+    }
+    
+    //画面遷移から戻ってきたときに実行する関数
+    func callBack(data: PostData) {
+        print(data)
     }
 
 }
