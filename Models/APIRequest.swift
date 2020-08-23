@@ -41,6 +41,22 @@ struct APIRequest {
         
     }
     
+    func getSpecifiedUser (_ id: String, completion: @escaping ([User]) -> ()) {
+        
+        guard let url = URL(string: "https://locomi.herokuapp.com/api/users/\(id)") else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            
+            let user = try! JSONDecoder().decode([User].self, from: data!)
+            
+            DispatchQueue.main.async {
+                completion(user)
+            }
+            
+        }.resume()
+        
+    }
+    
     func post (_ dataToPost: PostData) {
         
         do {

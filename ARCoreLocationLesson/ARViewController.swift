@@ -35,7 +35,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
                 altitude = comic.altitude!
             }
             let location = CLLocation(coordinate: coordinate, altitude: altitude)
-            let image = Utility().drawText(text: comic.text)
+            let image = Utility().drawText(text: comic.text, distance: comic.distance)
             spotsData.append((location, image!))
         }
         print(spotsData)
@@ -110,7 +110,7 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
         let coordinate = CLLocationCoordinate2D(latitude: Double(data.lat)!, longitude: Double(data.lng)!)
         let altitude: Double = data.altitude ?? 45
         let location = CLLocation(coordinate: coordinate, altitude: altitude)
-        let image = Utility().drawText(text: data.text)
+        let image = Utility().drawText(text: data.text, distance: 0.0)
         let spotData: [(CLLocation, UIImage)] = [(location, image!)]
         
         Utility().addLocations(sceneLocationView: sceneLocationView, spotsData: spotData)

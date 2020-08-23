@@ -33,6 +33,20 @@ struct AuthResponseData: Codable {
 }
 
 
+// getUsers
+struct User: Codable, Identifiable {
+    
+    var id: String
+    var screen_name: String
+    var name: String
+    var profile_image: String?
+    var email: String
+    var updated_at: String?
+    var created_at: String?
+    
+}
+
+
 // post
 struct PostData: Codable {
     

@@ -55,42 +55,52 @@ class Utility {
     ///
     /// - Parameters:
     ///   - image: 追加先の元画像
-    ///   - text: 追加するテキスト   
-    func drawText(text: String) -> UIImage?
+    ///   - text: 追加するテキスト
+    ///   - distance: キョリ
+    func drawText(text: String, distance: Double) -> UIImage?
     {
         var newImage: UIImage?
         
         if text.count <= 9 {
-            newImage = smallImage(text: text)
+            newImage = smallImage(text: text, distance: distance)
         } else if text.count <= 17 {
-            newImage = bigImage(text: text)
+            newImage = bigImage(text: text, distance: distance)
         } else {
             let t = String(text.prefix(17)) + "..."
-            newImage = bigImage(text: t)
+            newImage = bigImage(text: t, distance: distance)
         }
 
         return newImage
     }
     
-    private func smallImage(text: String) -> UIImage?
+    private func smallImage(text: String, distance: Double) -> UIImage?
     {
         let image = UIImage(named: "hukidashi")!
+        let distance = "キョリ：" + String(round(distance*100000)/100) + "m"
         
         let font = UIFont.boldSystemFont(ofSize: 32)
+        let subheadline = UIFont.systemFont(ofSize: 12)
         let imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
 
         UIGraphicsBeginImageContext(image.size);
 
         image.draw(in: imageRect)
 
-        let textRect  = CGRect(x: 10, y: 10, width: image.size.width - 5, height: image.size.height - 5)
+        let textRect = CGRect(x: 10, y: 8, width: image.size.width - 5, height: image.size.height - 5)
+        let subheadlineRect = CGRect(x: 15, y: 46, width: image.size.width - 5, height: image.size.height - 5)
         let textStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         let textFontAttributes = [
             NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.paragraphStyle: textStyle
         ]
+        let subheadlineAttributes = [
+            NSAttributedString.Key.font: subheadline,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.paragraphStyle: textStyle
+        ]
         text.draw(in: textRect, withAttributes: textFontAttributes)
+        distance.draw(in: subheadlineRect, withAttributes: subheadlineAttributes)
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
 
@@ -99,29 +109,38 @@ class Utility {
         return newImage
     }
     
-    private func bigImage(text: String) -> UIImage?
+    private func bigImage(text: String, distance: Double) -> UIImage?
     {
         let image = UIImage(named: "hukidashi-big")!
         let t1 = String(text.prefix(9))
         let t2 = String(text.suffix(text.count - 9))
+        let distance = "キョリ：" + String(round(distance*100000)/100) + "m"
         
         let font = UIFont.boldSystemFont(ofSize: 32)
+        let subheadline = UIFont.systemFont(ofSize: 12)
         let imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
 
         UIGraphicsBeginImageContext(image.size);
 
         image.draw(in: imageRect)
 
-        let textRect1 = CGRect(x: 10, y: 10, width: image.size.width - 5, height: image.size.height - 5)
-        let textRect2 = CGRect(x: 10, y: 48, width: image.size.width - 5, height: image.size.height - 5)
+        let textRect1 = CGRect(x: 10, y: 8, width: image.size.width - 5, height: image.size.height - 5)
+        let textRect2 = CGRect(x: 10, y: 46, width: image.size.width - 5, height: image.size.height - 5)
+        let subheadlineRect = CGRect(x: 15, y: 84, width: image.size.width - 5, height: image.size.height - 5)
         let textStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         let textFontAttributes = [
             NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.paragraphStyle: textStyle
         ]
+        let subheadlineAttributes = [
+            NSAttributedString.Key.font: subheadline,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.paragraphStyle: textStyle
+        ]
         t1.draw(in: textRect1, withAttributes: textFontAttributes)
         t2.draw(in: textRect2, withAttributes: textFontAttributes)
+        distance.draw(in: subheadlineRect, withAttributes: subheadlineAttributes)
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
 

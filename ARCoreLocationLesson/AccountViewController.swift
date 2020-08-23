@@ -36,26 +36,72 @@ struct AccountView: View {
     
     var body: some View {
         
-        Button(action: { self.isShowing.toggle() }) {
-            HStack {
-                Image(systemName: "person")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
-                Text("Login")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
-                Image(systemName: "arrow.right")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
+        if UserID().getID() != "" {
+            
+            UserInfo(id: UserID().getID())
+            
+        } else {
+            
+            Button(action: { self.isShowing.toggle() }) {
+                HStack {
+                    Image(systemName: "person")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.white)
+                    Text("Login")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.white)
+                    Image(systemName: "arrow.right")
+                        .font(.largeTitle)
+                        .foregroundColor(Color.white)
+                }
+                .padding(.all)
+                .background(Color.blue)
+                .cornerRadius(10)
+                .sheet(isPresented: $isShowing) {
+                    LoginView(isShowing: $isShowing)
+                }
             }
-            .padding(.all)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .sheet(isPresented: $isShowing) {
-                LoginView(isShowing: $isShowing)
-            }
+            
         }
         
+    }
+    
+}
+
+struct UserInfo: View {
+    
+    @State var id = ""
+    @State var screen_name = "---"
+    @State var name = "---"
+    
+    var body: some View {
+        
+        HStack {
+            
+            Image("user_icon")
+                .resizable()
+                .scaledToFit()
+                .clipShape(Circle())
+                .frame(width: 60, height: 60)
+                .padding(8)
+            
+            VStack(alignment: .leading) {
+                
+                Text("\(self.screen_name)")
+                
+                Text("@\(self.name)")
+                    .foregroundColor(.gray)
+                    .font(.callout)
+            }
+            
+        }
+        .onAppear {
+            APIRequest().getSpecifiedUser(self.id) { User in
+                self.screen_name = User[0].screen_name
+                self.name = User[0].name
+            }
+            
+        }
     }
     
 }
