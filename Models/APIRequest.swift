@@ -41,6 +41,42 @@ struct APIRequest {
         
     }
     
+    // 同期通信で取得
+    func getAuth () -> Bool {
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        var isOK: Bool = false
+        
+        guard let url = URL(string: "https://locomi.herokuapp.com/api/refresh-token") else { return false }
+        
+        let token = RefreshToken().getToken()
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (jsonData, _, _) in
+            
+            let data = try! JSONDecoder().decode(AuthResponse.self, from: (jsonData)!)
+
+            if data.status == "success" {
+                AccessToken().saveToken(token: data.data?.access_token ?? "")
+                RefreshToken().saveToken(token: data.data?.refresh_token ?? "")
+                UserID().saveID(id: data.data?.id ?? "")
+                isOK = true
+            }
+            
+            semaphore.signal()
+        }.resume()
+        
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        print(isOK)
+        
+        return isOK
+        
+    }
+    
     func getSpecifiedUser (_ id: String, completion: @escaping ([User]) -> ()) {
         
         guard let url = URL(string: "https://locomi.herokuapp.com/api/users/\(id)") else { return }

@@ -36,7 +36,7 @@ struct AccountView: View {
     
     var body: some View {
         
-        if UserID().getID() != "" {
+        if APIRequest().getAuth() {
             
             UserInfo(id: UserID().getID())
             
@@ -70,38 +70,54 @@ struct AccountView: View {
 
 struct UserInfo: View {
     
+    @State private var showingLogout = false
     @State var id = ""
     @State var screen_name = "---"
     @State var name = "---"
     
     var body: some View {
         
-        HStack {
+        VStack {
             
-            Image("user_icon")
-                .resizable()
-                .scaledToFit()
-                .clipShape(Circle())
-                .frame(width: 60, height: 60)
-                .padding(8)
+            HStack {
+                
+                Image("user_icon")
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60)
+                    .padding(8)
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("\(self.screen_name)")
+                    
+                    Text("@\(self.name)")
+                        .foregroundColor(.gray)
+                        .font(.callout)
+                }
+                
+            }
+            .onAppear {
+                APIRequest().getSpecifiedUser(self.id) { User in
+                    self.screen_name = User[0].screen_name
+                    self.name = User[0].name
+                }
+                
+            }
             
-            VStack(alignment: .leading) {
-                
-                Text("\(self.screen_name)")
-                
-                Text("@\(self.name)")
-                    .foregroundColor(.gray)
-                    .font(.callout)
+            Button(action: { self.showingLogout.toggle() }) {
+                Text("logout")
+                    .foregroundColor(Color.white)
+                    .padding(3)
+                    .background(Color.blue)
+                    .cornerRadius(5)
+            }.sheet(isPresented: $showingLogout) {
+                Logout(isShowing: self.$showingLogout)
             }
             
         }
-        .onAppear {
-            APIRequest().getSpecifiedUser(self.id) { User in
-                self.screen_name = User[0].screen_name
-                self.name = User[0].name
-            }
-            
-        }
+        
     }
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		134E07C665CD234D0B1817FF /* Pods_ARCoreLocationLesson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CD5C95708153CED2EC933B /* Pods_ARCoreLocationLesson.framework */; };
+		1865DCA124FEAD01006036A8 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DCA024FEAD01006036A8 /* LogoutView.swift */; };
 		18D262F324ED6C38003972F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F224ED6C38003972F0 /* AppDelegate.swift */; };
 		18D262F524ED6C38003972F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F424ED6C38003972F0 /* SceneDelegate.swift */; };
 		18D262F724ED6C38003972F0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D262F624ED6C38003972F0 /* ARViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		00CD5C95708153CED2EC933B /* Pods_ARCoreLocationLesson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARCoreLocationLesson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1865DCA024FEAD01006036A8 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		18D262EF24ED6C38003972F0 /* ARCoreLocationLesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCoreLocationLesson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D262F224ED6C38003972F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D262F424ED6C38003972F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				18D28EC724EEA78F00BDEF49 /* LocomiViewController.swift */,
 				18D28EDA24F0001600BDEF49 /* AccountViewController.swift */,
 				18D28EDC24F000E900BDEF49 /* LoginView.swift */,
+				1865DCA024FEAD01006036A8 /* LogoutView.swift */,
 				18D262F824ED6C38003972F0 /* Main.storyboard */,
 				18D262FB24ED6C3B003972F0 /* Assets.xcassets */,
 				18D262FD24ED6C3B003972F0 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			files = (
 				18D28EDF24F001A800BDEF49 /* KeyChain.swift in Sources */,
 				18D28EC624EE968800BDEF49 /* Utility.swift in Sources */,
+				1865DCA124FEAD01006036A8 /* LogoutView.swift in Sources */,
 				18D262F724ED6C38003972F0 /* ARViewController.swift in Sources */,
 				18D28ED924EFFF6300BDEF49 /* PostView.swift in Sources */,
 				18D28EC824EEA78F00BDEF49 /* LocomiViewController.swift in Sources */,
