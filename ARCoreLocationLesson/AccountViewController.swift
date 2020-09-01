@@ -58,7 +58,7 @@ struct AccountView: View {
                 .background(Color.blue)
                 .cornerRadius(10)
                 .sheet(isPresented: $isShowing) {
-                    LoginView(isShowing: $isShowing)
+                    LoginView(isShowing: self.$isShowing)
                 }
             }
             
