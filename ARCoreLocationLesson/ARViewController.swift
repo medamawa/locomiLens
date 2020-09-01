@@ -61,6 +61,8 @@ class ARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        // 現在のタグを全て削除
+        Utility().removeLocations(sceneLocationView: sceneLocationView)
         // タグ追加
         loadSpotsData()
         Utility().addLocations(sceneLocationView: sceneLocationView, spotsData: spotsData)
